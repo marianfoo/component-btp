@@ -1,0 +1,178 @@
+{
+  "_version": "1.59.0",
+  "sap.app": {
+    "id": "inappcomponent1.one",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "embeds": ["./thirdparty/customControl/spreadsheetImporter/v0_33_0"],
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:lrop",
+      "version": "1.12.4",
+      "toolsId": "dbf58a19-ba25-4da5-96a5-883eda548b67"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/sap/opu/odata4/dmo/ui_featureshowcaseapp/srvd/dmo/ui_featureshowcaseapp/0001/",
+        "type": "OData",
+        "settings": {
+          "annotations": [
+            "annotation"
+          ],
+          "localUri": "localService/metadata.xml",
+          "odataVersion": "4.0"
+        }
+      },
+      "annotation": {
+        "type": "ODataAnnotation",
+        "uri": "annotations/annotation.xml",
+        "settings": {
+          "localUri": "annotations/annotation.xml"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.120.4",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.ushell": {},
+        "sap.fe.templates": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "inappcomponent1.one.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "synchronizationMode": "None",
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      },
+      "@i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/i18n.properties"
+      }
+    },
+    "resources": {
+      "css": []
+    },
+    "resourceRoots": {
+      "cc.spreadsheetimporter.v0_33_0": "./thirdparty/customControl/spreadsheetImporter/v0_33_0"
+    },
+    "componentUsages": {
+      "spreadsheetImporter": {
+        "name": "cc.spreadsheetimporter.v0_33_0"
+      }
+    },
+    "routing": {
+      "config": {},
+      "routes": [
+        {
+          "pattern": ":?query:",
+          "name": "RootList",
+          "target": "RootList"
+        },
+        {
+          "pattern": "Root({key}):?query:",
+          "name": "RootObjectPage",
+          "target": "RootObjectPage"
+        },
+        {
+          "pattern": "Root({key})/_Child({key2}):?query:",
+          "name": "ChildObjectPage",
+          "target": "ChildObjectPage"
+        }
+      ],
+      "targets": {
+        "RootList": {
+          "type": "Component",
+          "id": "RootList",
+          "name": "sap.fe.templates.ListReport",
+          "options": {
+            "settings": {
+              "contextPath": "/Root",
+              "variantManagement": "Page",
+              "navigation": {
+                "Root": {
+                  "detail": {
+                    "route": "RootObjectPage"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "RootObjectPage": {
+          "type": "Component",
+          "id": "RootObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "editableHeaderContent": false,
+              "contextPath": "/Root",
+              "navigation": {
+                "_Child": {
+                  "detail": {
+                    "route": "ChildObjectPage"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "ChildObjectPage": {
+          "type": "Component",
+          "id": "ChildObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "editableHeaderContent": false,
+              "contextPath": "/Root/_Child"
+            }
+          }
+        }
+      }
+    }
+  },
+  "sap.fiori": {
+    "registrationIds": [],
+    "archeType": "transactional"
+  }
+}
