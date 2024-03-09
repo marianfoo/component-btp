@@ -7,7 +7,7 @@
     "applicationVersion": {
       "version": "0.0.1"
     },
-    "embeds": ["./thirdparty/customControl/spreadsheetImporter/v0_33_0"],
+    "embeds": ["thirdparty/customControl/spreadsheetImporter/v0_33_0"],
     "title": "{{appTitle}}",
     "description": "{{appDescription}}",
     "resources": "resources.json",

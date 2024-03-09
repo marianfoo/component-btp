@@ -23,7 +23,7 @@
     "scripts": {
         "start": "fiori run --open \"test/flpSandbox.html?sap-ui-xx-viewCache=false#inappcomponent2.two-tile\"",
         "start-local": "fiori run --config ./ui5-local.yaml --open \"test/flpSandbox.html?sap-ui-xx-viewCache=false#inappcomponent2.two-tile\"",
-        "build": "ui5 build --config=ui5.yaml --clean-dest --dest dist",
+        "build": "ui5 build --config=ui5.yaml --all --clean-dest --dest dist",
         "deploy": "npm run build && fiori deploy --config ui5-deploy.yaml --all && rimraf archive.zip",
         "deploy-config": "fiori add deploy-config",
         "start-noflp": "fiori run --open \"index.html?sap-ui-xx-viewCache=false\"",
