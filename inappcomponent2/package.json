@@ -9,9 +9,7 @@
         "sapui5"
     ],
     "main": "webapp/index.html",
-    "dependencies": {
-        "ui5-cc-spreadsheetimporter": "^0.33.0"
-    },
+
     "devDependencies": {
         "@sap-ux/ui5-middleware-fe-mockserver": "2",
         "@sap/ux-specification": "UI5-1.120",
@@ -24,7 +22,8 @@
         "start": "fiori run --open \"test/flpSandbox.html?sap-ui-xx-viewCache=false#inappcomponent2.two-tile\"",
         "start-local": "fiori run --config ./ui5-local.yaml --open \"test/flpSandbox.html?sap-ui-xx-viewCache=false#inappcomponent2.two-tile\"",
         "build": "ui5 build --config=ui5.yaml --all --clean-dest --dest dist",
-        "deploy": "npm run build && fiori deploy --config ui5-deploy.yaml --all && rimraf archive.zip",
+        "deploy": "npm run build && fiori deploy -y --config ui5-deploy.yaml --all && rimraf archive.zip",
+        "deploy-nuve": "npm run build && fiori deploy -y --config ui5-deploy-nuve.yaml && rimraf archive.zip",
         "deploy-config": "fiori add deploy-config",
         "start-noflp": "fiori run --open \"index.html?sap-ui-xx-viewCache=false\"",
         "start-mock": "fiori run --config ./ui5-mock.yaml --open \"test/flpSandbox.html?sap-ui-xx-viewCache=false#inappcomponent2.two-tile\"",

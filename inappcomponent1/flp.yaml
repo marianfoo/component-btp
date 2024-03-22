@@ -1,0 +1,44 @@
+specVersion: "3.1"
+metadata:
+  name: inappcomponent1.one
+type: application
+server:
+  customMiddleware:
+    - name: fiori-tools-proxy
+      afterMiddleware: compression
+      configuration:
+        ignoreCertError: false
+        ui5:
+          path:
+            - /resources
+            - /test-resources
+          url: https://ui5.sap.com
+        backend:
+          - scp: true
+            path: /sap
+            url: https://9f8fad8f-18d6-4432-b645-28e779b76462.abap.us10.hana.ondemand.com
+            destination: abap-cloud-abap-marian-zeis_dev-66hotgp5-subspace
+        bsp: ZCOMPSUB2
+    - name: fiori-tools-appreload
+      afterMiddleware: compression
+      configuration:
+        port: 35729
+        path: dist
+        delay: 300
+    - name: fiori-tools-preview
+      afterMiddleware: fiori-tools-appreload
+      configuration:
+        component: inappcomponent1.one
+        ui5Theme: sap_horizon
+    - name: fiori-tools-servestatic
+      beforeMiddleware: fiori-tools-proxy
+      configuration:
+        paths:
+          - path: /**/ZCOMPSUB2
+            src: dist
+          - path: /**/inappcomponent1/one
+            src: dist
+resources:
+  configuration:
+    paths:
+      webapp: dist

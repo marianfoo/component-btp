@@ -7,7 +7,9 @@
     "applicationVersion": {
       "version": "0.0.1"
     },
-    "embeds": ["thirdparty/customControl/spreadsheetImporter/v0_33_0"],
+    "embeds": [
+      "thirdparty/customControl/spreadsheetImporter/v0_33_0"
+    ],
     "title": "{{appTitle}}",
     "description": "{{appDescription}}",
     "resources": "resources.json",
@@ -33,6 +35,19 @@
         "uri": "annotations/annotation.xml",
         "settings": {
           "localUri": "annotations/annotation.xml"
+        }
+      }
+    },
+    "crossNavigation": {
+      "inbounds": {
+        "compsub1-display": {
+          "semanticObject": "compsub1",
+          "action": "display",
+          "title": "{{flpTitle}}",
+          "signature": {
+            "parameters": {},
+            "additionalParameters": "allowed"
+          }
         }
       }
     }
@@ -62,6 +77,9 @@
         "sap.ui.core": {},
         "sap.ushell": {},
         "sap.fe.templates": {}
+      },
+      "components": {
+        "cc.spreadsheetimporter.v0_33_0": {}
       }
     },
     "contentDensities": {
@@ -92,9 +110,6 @@
     },
     "resources": {
       "css": []
-    },
-    "resourceRoots": {
-      "cc.spreadsheetimporter.v0_33_0": "./thirdparty/customControl/spreadsheetImporter/v0_33_0"
     },
     "componentUsages": {
       "spreadsheetImporter": {

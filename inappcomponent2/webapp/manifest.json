@@ -7,7 +7,6 @@
     "applicationVersion": {
       "version": "0.0.1"
     },
-    "embeds": ["thirdparty/customControl/spreadsheetImporter/v0_33_0"],
     "title": "{{appTitle}}",
     "description": "{{appDescription}}",
     "resources": "resources.json",
@@ -33,6 +32,19 @@
         "uri": "annotations/annotation.xml",
         "settings": {
           "localUri": "annotations/annotation.xml"
+        }
+      }
+    },
+    "crossNavigation": {
+      "inbounds": {
+        "compsub1-display": {
+          "semanticObject": "compsub2",
+          "action": "display",
+          "title": "{{flpTitle}}",
+          "signature": {
+            "parameters": {},
+            "additionalParameters": "allowed"
+          }
         }
       }
     }
@@ -95,9 +107,6 @@
     },
     "resources": {
       "css": []
-    },
-    "resourceRoots": {
-      "cc.spreadsheetimporter.v0_33_0": "./thirdparty/customControl/spreadsheetImporter/v0_33_0"
     },
     "componentUsages": {
       "spreadsheetImporter": {
